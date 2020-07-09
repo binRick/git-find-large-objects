@@ -1,4 +1,5 @@
 #!/bin/bash -e
+EXECUTE_RM_CMD="${EXECUTE_RM_CMD:-1}"
 FILES_TO_DELETE="$@"
 
 setup(){
@@ -13,9 +14,9 @@ setup(){
 
 rm_file(){
     ansi --yellow --underline "Deleting Files '$FILES_TO_DELETE' from GIT Objects...."
-    cmd="git filter-branch -f --tree-filter \"rm -f $FILES_TO_DELETE\" -- --all"
+    cmd="command git filter-branch -f --tree-filter \"command rm -f $FILES_TO_DELETE\" -- --all"
     [[ "$EXECUTE_RM_CMD" == "1" ]] && eval $cmd && return
-    ansi --yellow --underline "$cmd"
+    ansi --cyan --underline --bg-black "$cmd"
     
 }
 
