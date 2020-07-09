@@ -1,0 +1,2 @@
+DISPLAY_RESULTS_QTY=10
+RESULTS_FILENAME=.git_objects_sorted_by_size.txt
